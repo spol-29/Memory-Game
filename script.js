@@ -41,25 +41,18 @@ const timeGenerator = () => {
   timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
 
-//For calculating moves
 const movesCounter = () => {
   movesCount += 1;
   moves.innerHTML = `<span>Moves:</span>${movesCount}`;
 };
 
-//Pick random objects from the items array
 const generateRandom = (size = 4) => {
-  //temporary array
   let tempArray = [...items];
-  //initializes cardValues array
   let cardValues = [];
-  //size should be double (4*4 matrix)/2 since pairs of objects would exist
   size = (size * size) / 2;
-  //Random object selection
   for (let i = 0; i < size; i++) {
     const randomIndex = Math.floor(Math.random() * tempArray.length);
     cardValues.push(tempArray[randomIndex]);
-    //once selected remove the object from temp array
     tempArray.splice(randomIndex, 1);
   }
   return cardValues;
@@ -79,7 +72,6 @@ const matrixGenerator = (cardValues, size = 4) => {
      </div>
      `;
   }
-  //Grid
   gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
 
   cards = document.querySelectorAll(".card-container");
