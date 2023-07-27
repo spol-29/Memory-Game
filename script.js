@@ -139,7 +139,6 @@ stopButton.addEventListener(
   })
 );
 
-//Initialize values and func calls
 const initializer = () => {
   result.innerText = "";
   winCount = 0;
